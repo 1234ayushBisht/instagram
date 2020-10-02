@@ -821,7 +821,7 @@
 .dark .post-uploading h5 {
   color: white;
 }
-.dark .my-modal img, .desc-modal img,.dark .post-modal img,.dark .shareModal img,.dark .follow-modal  img{
+.dark .my-modal img,.dark .desc-modal img,.dark .post-modal img,.dark .shareModal img,.dark .follow-modal  img{
   filter: invert();
 }
 .dark .search-card {

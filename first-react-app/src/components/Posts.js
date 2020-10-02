@@ -16,6 +16,7 @@ import CancelIcon from '@material-ui/icons/Cancel'
 import WhatsAppIcon from '@material-ui/icons/WhatsApp';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import M from 'materialize-css'
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 import firebaseApp from '../firebase'
 const db = firebaseApp.firestore()
@@ -29,7 +30,8 @@ export class Posts extends Component {
             post: this.props.post,
             postCommentValue: '',
             commentModal: false,
-            share: false
+            share: false,
+            likeLoading: false
         }
     }
 
@@ -74,6 +76,7 @@ export class Posts extends Component {
     }
 
     likePost = () => {
+        this.setState({ likeLoading: true })
         fetch(`/api/post/like/${this.state.post._id}`, {
             method: 'put',
             headers: {
@@ -95,7 +98,9 @@ export class Posts extends Component {
                         date: `${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`,
                         post: data.success.post.mediaURL
                     })
-                        .then((doc) => { })
+                        .then((doc) => { 
+                            this.setState({ likeLoading: false })
+                         })
                         .catch(err => console.error(err))
                 }
             })
@@ -103,6 +108,7 @@ export class Posts extends Component {
     }
 
     unlikePost = () => {
+        this.setState({ likeLoading: true })
         fetch(`/api/post/like/${this.state.post._id}`, {
             method: 'put',
             headers: {
@@ -113,6 +119,7 @@ export class Posts extends Component {
             .then(res => res.json())
             .then(data => {
                 this.setState({ post: data.success.post })
+                this.setState({ likeLoading: false })
             })
             .catch(err => console.error(err))
     }
@@ -157,7 +164,7 @@ export class Posts extends Component {
 
     render() {
         let shareModal =
-            this.state.share ?
+            this.state.share && this.state.post !== null ?
                 <Modal
                     open={this.state.share}
                     onClose={this.closeShareModal}
@@ -196,10 +203,10 @@ export class Posts extends Component {
                 :
                 <></>
 
-        let all_comments = [...this.state.post.comments].reverse();
+        let all_comments = this.state.post !== null ?  [...this.state.post.comments].reverse() : [];
 
         let commentModalHtml =
-            this.state.commentModal ?
+            this.state.commentModal && this.state.post !== null ?
                 <Modal
                     open={this.state.commentModal}
                     onClose={this.closeCommentModal}
@@ -265,6 +272,12 @@ export class Posts extends Component {
                             <IconButton aria-label="like post">
                                 <div>
                                     {
+                                        this.state.likeLoading ?
+                                        <div className="post-uploading">
+                                            <CircularProgress />
+                                            <h5>Wait....</h5>
+                                        </div> 
+                                        :
                                         this.state.post.likes.includes(this.state.user.userId) ?
                                             <div className="red-text" onClick={this.unlikePost}>
                                                 <FavoriteIcon onClick={this.unlikePost} />

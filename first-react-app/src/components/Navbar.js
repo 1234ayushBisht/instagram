@@ -155,13 +155,12 @@ export class Navbar extends Component {
         } else {
             localStorage.setItem("darkMode", true)
         }
-        window.location.href = "/"
         window.location.reload()
     }
 
     render() {
         const actions = [
-            { icon: <Brightness6Icon className="my-speeddail-icon" />, name: 'Switch Theme', event: this.changeTheme },
+            { icon: <a href="/"><Brightness6Icon className="my-speeddail-icon" /></a>, name: 'Switch Theme', event: this.changeTheme },
             { icon: <Link to="/likedPost"><FavoriteIcon className="my-speeddail-icon" /></Link>, name: 'Liked Post', event: this.closeSpeedDail },
             { icon: <SearchIcon className="my-speeddail-icon" />, name: 'Search', event: this.openSearch },
             { icon: <Link to="/dashboard"><AccountCircleIcon className="my-speeddail-icon" /></Link>, name: 'Profile', event: this.closeSpeedDail },
