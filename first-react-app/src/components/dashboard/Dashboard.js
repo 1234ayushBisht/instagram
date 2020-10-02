@@ -67,7 +67,7 @@ class Dashboard extends Component {
                 M.toast({ html: 'Profile Photo Uploaded', classes: 'success' })
                 imgRef.getDownloadURL()
                     .then(url => {
-                        window.location.href==window.location.href.split("/")[0]
+                        window.location.href=window.location.href.split("/")[0]
                         window.location.reload()
                     })
             }).catch(err => console.error(err));
