@@ -238,7 +238,7 @@ export class Posts extends Component {
                 <></>
 
         return (
-            this.state.post ?
+            this.state.post !== null ?
                 <div>
                     <Card style={{ margin: '4rem 0rem' }} raised={true} className=" main-app-post">
                         <div className="d-flex-r f-center">
