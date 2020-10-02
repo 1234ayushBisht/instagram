@@ -67,8 +67,7 @@ class Dashboard extends Component {
                 M.toast({ html: 'Profile Photo Uploaded', classes: 'success' })
                 imgRef.getDownloadURL()
                     .then(url => {
-                        window.location.href=window.location.href.split("/")[0]
-                        window.location.reload()
+                        this.setState({ imageURL: url })
                     })
             }).catch(err => console.error(err));
     }
@@ -87,8 +86,6 @@ class Dashboard extends Component {
                         imgRef.getDownloadURL()
                             .then(url => {
                                 this.setState({ imageURL: url })
-                                window.location.href=window.location.href.split("/")[0]
-                                window.location.reload()
                             })
                     }).catch(err => console.error(err));
             }).catch(err => {
@@ -158,14 +155,10 @@ class Dashboard extends Component {
                     <div className="my-modal">
                         <h5>Change Profile Photo</h5>
                         <Divider />
-                        <Link to="/">
-                            <label htmlFor="profile-img-input" className="blue-text">Upload Photo</label>
-                            <input type="file" accept="image/*" id="profile-img-input" onChange={this.setNewImg} />
-                        </Link>
+                        <label htmlFor="profile-img-input" className="blue-text">Upload Photo</label>
+                        <input type="file" accept="image/*" id="profile-img-input" onChange={this.setNewImg} />
                         <Divider />
-                        <Link to="/">
-                            <button className="red-text" onClick={this.setDefaultImg}>Remove Photo</button>
-                        </Link>
+                        <button className="red-text" onClick={this.setDefaultImg}>Remove Photo</button>
                         <Divider />
                         <button className="cancelBtn" onClick={this.closeModal}>Cancel</button>
                     </div>
