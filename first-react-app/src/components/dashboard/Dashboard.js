@@ -158,10 +158,14 @@ class Dashboard extends Component {
                     <div className="my-modal">
                         <h5>Change Profile Photo</h5>
                         <Divider />
-                        <label htmlFor="profile-img-input" className="blue-text">Upload Photo</label>
-                        <input type="file" accept="image/*" id="profile-img-input" onChange={this.setNewImg} />
+                        <Link to="/">
+                            <label htmlFor="profile-img-input" className="blue-text">Upload Photo</label>
+                            <input type="file" accept="image/*" id="profile-img-input" onChange={this.setNewImg} />
+                        </Link>
                         <Divider />
-                        <button className="red-text" onClick={this.setDefaultImg}>Remove Photo</button>
+                        <Link to="/">
+                            <button className="red-text" onClick={this.setDefaultImg}>Remove Photo</button>
+                        </Link>
                         <Divider />
                         <button className="cancelBtn" onClick={this.closeModal}>Cancel</button>
                     </div>
