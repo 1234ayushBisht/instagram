@@ -68,6 +68,7 @@ class Dashboard extends Component {
                 imgRef.getDownloadURL()
                     .then(url => {
                         this.setState({ imageURL: url })
+                        window.location.href="/"
                         window.location.reload()
                     })
             }).catch(err => console.error(err));
@@ -87,6 +88,7 @@ class Dashboard extends Component {
                         imgRef.getDownloadURL()
                             .then(url => {
                                 this.setState({ imageURL: url })
+                                window.location.href="/"
                                 window.location.reload()
                             })
                     }).catch(err => console.error(err));
