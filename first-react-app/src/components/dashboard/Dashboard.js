@@ -67,10 +67,10 @@ class Dashboard extends Component {
                 M.toast({ html: 'Profile Photo Uploaded', classes: 'success' })
                 imgRef.getDownloadURL()
                     .then(url => {
-                        window.location.href="/"
-                        window.location.reload()
                     })
             }).catch(err => console.error(err));
+        window.location.href = "/"
+        window.location.reload()
     }
 
     setDefaultImg = e => {
@@ -87,13 +87,13 @@ class Dashboard extends Component {
                         imgRef.getDownloadURL()
                             .then(url => {
                                 this.setState({ imageURL: url })
-                                window.location.href="/"
-                                window.location.reload()
                             })
                     }).catch(err => console.error(err));
             }).catch(err => {
                 console.log(err)
             })
+        window.location.href = "/"
+        window.location.reload()
     }
 
     setDesc = e => {
