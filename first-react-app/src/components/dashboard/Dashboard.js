@@ -67,7 +67,6 @@ class Dashboard extends Component {
                 M.toast({ html: 'Profile Photo Uploaded', classes: 'success' })
                 imgRef.getDownloadURL()
                     .then(url => {
-                        this.setState({ imageURL: url })
                         window.location.href="/"
                         window.location.reload()
                     })
