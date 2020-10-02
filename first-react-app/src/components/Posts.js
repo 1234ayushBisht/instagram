@@ -16,7 +16,6 @@ import CancelIcon from '@material-ui/icons/Cancel'
 import WhatsAppIcon from '@material-ui/icons/WhatsApp';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import M from 'materialize-css'
-import CircularProgress from '@material-ui/core/CircularProgress';
 
 import firebaseApp from '../firebase'
 const db = firebaseApp.firestore()
@@ -100,9 +99,10 @@ export class Posts extends Component {
                     })
                         .then((doc) => { 
                             this.setState({ likeLoading: false })
-                         })
+                        })
                         .catch(err => console.error(err))
                 }
+                this.setState({ likeLoading: false })
             })
             .catch(err => console.error(err))
     }
@@ -273,10 +273,14 @@ export class Posts extends Component {
                                 <div>
                                     {
                                         this.state.likeLoading ?
-                                        <div className="post-uploading">
-                                            <CircularProgress />
-                                            <h5>Wait....</h5>
-                                        </div> 
+                                        this.state.post.likes.includes(this.state.user.userId) ?
+                                            <div className="red-text" onClick={this.unlikePost}>
+                                                <FavoriteIcon />
+                                            </div>
+                                            :
+                                            <div>
+                                                <FavoriteIcon />
+                                            </div>
                                         :
                                         this.state.post.likes.includes(this.state.user.userId) ?
                                             <div className="red-text" onClick={this.unlikePost}>

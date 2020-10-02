@@ -774,24 +774,6 @@
   box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2), 0px 6px 10px 0px rgba(0,0,0,0.14), 0px 1px 18px 0px rgba(0,0,0,0.12)
 }
 
-.gifs-modal{
-  width: 80%;
-  height:80%;
-  overflow-y:scroll;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  outline: none;
-  border: none;
-  border-radius: 9px;
-  background-color:white;
-
-  display:flex;
-  flex-wrap:wrap;
-}
-
-.a-gif{margin:0px;padding:0px;}
 
 /* Dark*/
 
@@ -810,7 +792,7 @@
 }
 .dark .edit-desc {filter: invert();}
 .dark .post-uploading {
-  background-color: rgba(17, 17, 17, 0.411);
+  background-color: rgba(17, 17, 17, 0.521);
 }
 .dark .simple-info {
   filter:invert();

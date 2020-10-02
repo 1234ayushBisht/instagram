@@ -155,6 +155,7 @@ export class Navbar extends Component {
         } else {
             localStorage.setItem("darkMode", true)
         }
+        window.location.href="/"
         window.location.reload()
     }
 
