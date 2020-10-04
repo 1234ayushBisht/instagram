@@ -197,7 +197,7 @@ export class Navbar extends Component {
                                                 this.state.searchResults.map(user => (
                                                         <div key={user._id} className="d-flex-c search-result">
                                                             <div className="d-flex-r">
-                                                                <Link to={`/profile/${user.userId}`} onClick={this.closeSearch}>
+                                                                <Link to={`/p/profile/${user.userId}`} onClick={this.closeSearch}>
                                                                     <img src={`https://firebasestorage.googleapis.com/v0/b/instagram-1ae56.appspot.com/o/images%2F${user.userId}?alt=media&token=82cce9ae-a8e7-4619-bb2a-190aa58f889b`} alt="user" />
                                                                 </Link>
                                                                 <div>
