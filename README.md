@@ -13,4 +13,6 @@ N - Nodejs (It is runtime enviroment of javascript built on chromes v8 engine) |
 
 This app also uses Google Firebase which is a stack of backend provided by google it is very easy to use and make complex app simply by firebase . It gives us authentication , live database, hosting and stroage. In this project I've used firebase just for storing images.  
 
+Seet this running on : http://tsb-instagram.herokuapp.com/
+
 Thanks for Reading.
